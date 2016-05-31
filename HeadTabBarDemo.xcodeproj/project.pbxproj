@@ -14,6 +14,7 @@
 		B2AF53CF1CFD75D7002ADB90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2AF53CD1CFD75D7002ADB90 /* LaunchScreen.storyboard */; };
 		B2AF53DA1CFD75D8002ADB90 /* HeadTabBarDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF53D91CFD75D8002ADB90 /* HeadTabBarDemoTests.swift */; };
 		B2AF53E51CFD75D8002ADB90 /* HeadTabBarDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF53E41CFD75D8002ADB90 /* HeadTabBarDemoUITests.swift */; };
+		B2AF53F31CFD9720002ADB90 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF53F21CFD9720002ADB90 /* ContentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		B2AF53E01CFD75D8002ADB90 /* HeadTabBarDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeadTabBarDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2AF53E41CFD75D8002ADB90 /* HeadTabBarDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadTabBarDemoUITests.swift; sourceTree = "<group>"; };
 		B2AF53E61CFD75D8002ADB90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2AF53F21CFD9720002ADB90 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				B2AF53CB1CFD75D7002ADB90 /* Assets.xcassets */,
 				B2AF53CD1CFD75D7002ADB90 /* LaunchScreen.storyboard */,
 				B2AF53D01CFD75D7002ADB90 /* Info.plist */,
+				B2AF53F21CFD9720002ADB90 /* ContentViewController.swift */,
 			);
 			path = HeadTabBarDemo;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2AF53C71CFD75D7002ADB90 /* ViewController.swift in Sources */,
+				B2AF53F31CFD9720002ADB90 /* ContentViewController.swift in Sources */,
 				B2AF53C51CFD75D7002ADB90 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,6 +489,7 @@
 				B2AF53EB1CFD75D8002ADB90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B2AF53EC1CFD75D8002ADB90 /* Build configuration list for PBXNativeTarget "HeadTabBarDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +498,7 @@
 				B2AF53EE1CFD75D8002ADB90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B2AF53EF1CFD75D8002ADB90 /* Build configuration list for PBXNativeTarget "HeadTabBarDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +507,7 @@
 				B2AF53F11CFD75D8002ADB90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

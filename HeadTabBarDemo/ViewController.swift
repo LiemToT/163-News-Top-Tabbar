@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     var headScrollView: UIScrollView?
     var lastTapButton: UIButton?
     
+    var currentVC: UIViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +40,14 @@ class ViewController: UIViewController {
         }
 
         view.addSubview(headScrollView!)
+        
+        let contentVC1 = ContentViewController()
+        contentVC1.view.frame = CGRectMake(0, 104, CGRectGetWidth(view.bounds), CGRectGetHeight(view.bounds) - 104)
+        contentVC1.titleContent = tabTitleArray![0] as? String
+        contentVC1.initFrame()
+        addChildViewController(contentVC1)
+        
+        self.view.addSubview(contentVC1.view)
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,6 +69,18 @@ class ViewController: UIViewController {
                 self.lastTapButton = btn
         })
         
+        switch btn.tag {
+        case 100:
+            
+            break
+        case 101:
+            break
+        default:
+            break
+        }
+    }
+    
+    func replaceOldControllerToNew(oldController: UIViewController, newController: UIViewController) {
         
     }
 }
