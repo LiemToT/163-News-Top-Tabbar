@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     
     var currentVC: UIViewController?
     
+    let SCREEN_WIDTH = UIScreen.mainScreen().bounds.size.width
+    let SCREEN_HEIGHT = UIScreen.mainScreen().bounds.size.height
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,18 +39,17 @@ class ViewController: UIViewController {
             btn.setTitleColor(UIColor.redColor(), forState: .Selected)
             btn.titleLabel?.font = UIFont.boldSystemFontOfSize(15)
             btn.addTarget(self, action: Selector("didClickHeadButtonAction:"), forControlEvents: .TouchUpInside)
+            
+            if i == 0 {
+                btn.selected = true
+                btn.transform = CGAffineTransformMakeScale(1.2, 1.2)
+                lastTapButton = btn
+            }
+            
             headScrollView!.addSubview(btn)
         }
 
         view.addSubview(headScrollView!)
-        
-        let contentVC1 = ContentViewController()
-        contentVC1.view.frame = CGRectMake(0, 104, CGRectGetWidth(view.bounds), CGRectGetHeight(view.bounds) - 104)
-        contentVC1.titleContent = tabTitleArray![0] as? String
-        contentVC1.initFrame()
-        addChildViewController(contentVC1)
-        
-        self.view.addSubview(contentVC1.view)
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,25 +65,38 @@ class ViewController: UIViewController {
         lastTapButton?.selected = false
         
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: .CurveEaseIn, animations: { () -> Void in
-            btn.transform = CGAffineTransformMakeScale(1.3, 1.3)
+            btn.transform = CGAffineTransformMakeScale(1.2, 1.2)
             self.lastTapButton?.transform = CGAffineTransformIdentity
-            }, completion: { (finish) -> Void in
-                self.lastTapButton = btn
-        })
+            
+            let index = Int(CGFloat(self.view.bounds.size.width) / 2.0 / 80.0)
+            
+            if (btn.tag - 100) >= index && (btn.tag - 100) < self.tabTitleArray!.count - index {
+                let needToMove = btn.center.x - self.headScrollView!.contentOffset.x - self.SCREEN_WIDTH / 2
+                self.headScrollView?.setContentOffset(CGPointMake(self.headScrollView!.contentOffset.x + needToMove, 0) , animated: true)
+            }
+            
+            let isInRange:Bool = btn.tag - 100 == index - 1 || btn.tag - 100 == self.tabTitleArray!.count - index
+            
+            if isInRange && self.headScrollView?.contentOffset.x != 0 {
+                if btn.tag - 100 == index - 1 {
+                    self.headScrollView?.setContentOffset(CGPointMake(0, 0), animated: true)
+                } else {
+                    self.headScrollView?.scrollRectToVisible((self.headScrollView?.viewWithTag(100 + self.tabTitleArray!.count - 1)?.frame)!, animated: true)
+                }
+            }
+            
+            }, completion: nil)
+        
+        self.lastTapButton = btn
         
         switch btn.tag {
         case 100:
-            
             break
         case 101:
             break
         default:
             break
         }
-    }
-    
-    func replaceOldControllerToNew(oldController: UIViewController, newController: UIViewController) {
-        
     }
 }
 
